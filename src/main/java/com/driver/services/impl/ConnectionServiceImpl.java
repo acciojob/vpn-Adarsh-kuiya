@@ -94,6 +94,7 @@ public class ConnectionServiceImpl implements ConnectionService {
     }
     @Override
     public User communicate(int senderId, int receiverId) throws Exception {
-
+        User user=new User();
+        return user;
     }
 }
