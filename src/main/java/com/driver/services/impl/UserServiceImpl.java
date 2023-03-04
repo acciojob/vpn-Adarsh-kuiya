@@ -54,15 +54,16 @@ public class UserServiceImpl implements UserService {
             country.setCountryName(CountryName.JPN);
             country.setCode(CountryName.JPN.toCode());
         }
-
+            country.setUser(user);//one to one linking
         user.setConnected(false);
         user.setOriginalCountry(country);//one to one
+
 
         String Code=country.getCode()+"."+userRepository3.save(user).getId();
         user.setOriginalIp(Code);
 
 
-        country.setUser(user);//one to one linking
+
 
         userRepository3.save(user);
 
