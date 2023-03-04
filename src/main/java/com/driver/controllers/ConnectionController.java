@@ -21,7 +21,7 @@ public class ConnectionController {
         //3. Else, the user should be subscribed under a serviceProvider having option to connect to the given country.
             //If the connection can not be made (As user does not have a serviceProvider or serviceProvider does not have given country, throw "Unable to connect" exception.
             //Else, establish the connection where the maskedIp is "updatedCountryCode.serviceProviderId.userId" and return the updated user. If multiple service providers allow you to connect to the country, use the service provider having smallest id.
-        User user = connectionService.connect(userId, countryName);
+       User user = connectionService.connect(userId, countryName);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
