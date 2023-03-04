@@ -1,25 +1,20 @@
 package com.driver.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="admins")
+@Table(name = "admins")
 public class Admin {
-
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  private String userName;
-
+  private String username;
   private String password;
 
-  @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL)
   private List<ServiceProvider> serviceProviders;
-
-
 
   public Admin() {
   }
@@ -32,12 +27,12 @@ public class Admin {
     this.id = id;
   }
 
-  public String getUserName() {
-    return userName;
+  public String getUsername() {
+    return username;
   }
 
-  public void setUserName(String userName) {
-    this.userName = userName;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getPassword() {

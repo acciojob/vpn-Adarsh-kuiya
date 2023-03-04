@@ -24,11 +24,11 @@ public class ConnectionServiceImpl implements ConnectionService {
         User user = userRepository2.findById(userId).get();
 
         //if user is already connected
-        if(user.getMaskedIP()!=null){
+        if(user.getMaskedIp()!=null){
             throw new Exception("Already connected");
         }
         //if user is in it's own country
-        else if(countryName.equalsIgnoreCase(user.getCountry().getCountryName().toString())){
+        else if(countryName.equalsIgnoreCase(user.getOriginalCountry().getCountryName().toString())){
             return user;
         }
         //if user has not subscribed
@@ -65,7 +65,7 @@ public class ConnectionServiceImpl implements ConnectionService {
                 String mask = cc+"."+givenId+"."+userId;
 
                 user.setConnected(true);
-                user.setMaskedIP(mask);
+                user.setMaskedIp(mask);
 
                 user.getConnectionList().add(connection);
 
@@ -87,7 +87,7 @@ public class ConnectionServiceImpl implements ConnectionService {
             throw new Exception("Already disconnected");
         }
         user.setConnected(false);
-        user.setMaskedIP(null);
+        user.setMaskedIp(null);
 
         userRepository2.save(user);
         return user;

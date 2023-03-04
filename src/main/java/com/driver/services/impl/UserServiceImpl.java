@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
     public User register(String username, String password, String countryName) throws Exception {
         User user = new User();
         if (countryName.equalsIgnoreCase("ind") || countryName.equalsIgnoreCase("aus") || countryName.equalsIgnoreCase("usa") || countryName.equalsIgnoreCase("chi") || countryName.equalsIgnoreCase("jpn")) {
-        user.setUserName(username);
+        user.setUsername(username);
         user.setPassword(password);
 //setting the country name and country code  of country wrt given country name due to one to one relation b/w country and user
         Country country=new Country();
@@ -56,10 +56,10 @@ public class UserServiceImpl implements UserService {
         }
 
         user.setConnected(false);
-        user.setCountry(country);//one to one
+        user.setOriginalCountry(country);//one to one
 
         String Code=country.getCode()+"."+userRepository3.save(user).getId();
-        user.setOriginalIP(Code);
+        user.setOriginalIp(Code);
 
 
         country.setUser(user);//one to one linking
