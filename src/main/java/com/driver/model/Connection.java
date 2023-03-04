@@ -3,7 +3,7 @@ package com.driver.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Connection")
+@Table(name = "connections")
 public class Connection {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,11 +18,7 @@ public class Connection {
   @JoinColumn
   private User user;
 
-  public Connection( ServiceProvider serviceProvider) {
 
-    this.serviceProvider = serviceProvider;
-
-  }
 
   public Connection() {
   }

@@ -24,13 +24,14 @@ public class User {
 
 
    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-   List<Connection>connectionList=new ArrayList<>();
+   List<Connection>connectionList;
 
    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
    private Country country;
 
-   @ManyToMany(mappedBy = "users",cascade = CascadeType.ALL)
-   List<ServiceProvider>serviceProviderList;
+   @ManyToMany
+   @JoinColumn
+   private List<ServiceProvider>serviceProviderList;
 
    public User(int id, String userName, String password, String originalIP, String maskedIP, Boolean connected) {
 

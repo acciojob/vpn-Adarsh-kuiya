@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="ServiceProvider")
+@Table(name="ServiceProviders")
 public class ServiceProvider {
 
    @Id
@@ -19,14 +19,14 @@ public class ServiceProvider {
    private Admin admin;
 
    @OneToMany(mappedBy = "serviceProvider",cascade = CascadeType.ALL)
-   List<Connection> connectionList=new ArrayList<>();
+   private List<Connection> connectionList;
 
    @OneToMany(mappedBy = "serviceProvider",cascade = CascadeType.ALL)
-   List<Country>countryList=new ArrayList<>();
+  private List<Country>countryList;
+   @ManyToMany(mappedBy = "serviceProviderList",cascade = CascadeType.ALL)
+   private List<User> users;
 
-   @ManyToOne
-   @JoinColumn
-   List<User>users=new ArrayList<>();
+
 
    public ServiceProvider() {
    }

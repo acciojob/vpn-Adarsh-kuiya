@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="Admin")
+@Table(name="admins")
 public class Admin {
 
   @Id
@@ -17,7 +17,7 @@ public class Admin {
   private String password;
 
   @OneToMany(mappedBy = "admin",cascade = CascadeType.ALL)
-  List<ServiceProvider> serviceProviders=new ArrayList<>();
+  private List<ServiceProvider> serviceProviders;
 
 
 
