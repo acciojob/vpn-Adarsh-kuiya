@@ -33,16 +33,6 @@ public class User {
    @JoinColumn
    private List<ServiceProvider>serviceProviderList;
 
-   public User(int id, String userName, String password, String originalIP, String maskedIP, Boolean connected) {
-
-      this.userName = userName;
-      this.password = password;
-      this.originalIP = originalIP;
-      this.maskedIP = maskedIP;
-      this.connected = connected;
-
-   }
-
    public User() {
    }
 
